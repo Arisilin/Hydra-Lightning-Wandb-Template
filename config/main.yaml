@@ -1,0 +1,35 @@
+defaults:
+  - model/common@model.encoder: conv
+  - model/common@model.decoder: conv
+  - wandb: tiny-bvae
+
+hydra:
+  job:
+    chdir: False
+
+wandb:
+  enabled: True
+
+losses:
+  loss_type: [MSELoss,BVAEKLLoss]
+  beta: 0.0001
+
+seed: 42 
+
+dataset:
+  dataset: celeba_hq
+  root: ./data
+  batch_size: 64
+  num_workers: 10
+  transform:
+    - type: ToTensor
+    - type: Resize
+      size: 64
+  mode: [compose]
+
+trainer:
+  limit_train_batches: 10000
+  max_epochs: 50
+  
+optimizer:
+  lr: 0.0001
