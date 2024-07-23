@@ -1,5 +1,5 @@
-*/__pycache__
-tiny-bvae/
-outputs/
-wandb/
-*.pyc
+__pycache__/
+/tiny-bvae/
+/outputs/
+/wandb/
+/data/
