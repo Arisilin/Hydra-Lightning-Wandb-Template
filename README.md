@@ -15,3 +15,12 @@ Develop Progress:
 - [x] Add WandbLogger to log loss and result images.
 - [x] Test and fix the bugs in model architecture and losses
 - [ ] TODO: Visualization code use for demonstrate origin vs reconstruction results.
+
+## Acknowledgements
+The idea of file organization and some borrowed code originated from:
+
+[miracleyoo/pytorch-lightning-template](https://github.com/miracleyoo/pytorch-lightning-template)
+
+[ashleve/lightning-hydra-template](https://github.com/ashleve/lightning-hydra-template)
+
+which are also great templates for users of pytorch lightning. Thank to their idea and codes.
