@@ -21,7 +21,10 @@ def train(cfg_dict: DictConfig):
     exp_name = f"exp-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
     id = wandb.util.generate_id()
     wandb.init(project=cfg_dict.wandb.project, entity=cfg_dict.wandb.entity, name=exp_name, config=OmegaConf.to_container(cfg_dict, resolve=True),resume='allow',id = id)
-    
+    wandb.run.log_code(".", include_fn=lambda path: path.endswith('.py')
+                    or path.endswith('.yaml')
+                    or path.endswith('.sh')
+                    or path.endswith('.txt'))
     #Setup Model Interface
     mi = ModelInterface(cfg_dict)
     #Setup Dataset Loader Interface
