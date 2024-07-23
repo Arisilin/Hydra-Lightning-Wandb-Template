@@ -1,0 +1,11 @@
+name: conv
+
+img_size: 256
+in_channel: 3
+latent_dim: 32
+map_size: 1
+kernel_sizes: [4,4,4,4]
+strides: [4,4,4,4]
+hidden_dims: [32,64,128,256]
+paddings: [0,0,0,0]
+
