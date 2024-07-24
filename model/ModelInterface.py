@@ -39,6 +39,7 @@ class ModelInterface(L.LightningModule):
             cfg: ModelInterfaceCfg
      ):
         super().__init__()
+        self.save_hyperparameters(cfg)
         self.encoder = get_encoder(cfg.model.encoder)
         cfg.model.decoder.map_size = self.encoder.map_size
         self.decoder = get_decoder(cfg.model.decoder)
@@ -67,7 +68,13 @@ class ModelInterface(L.LightningModule):
         if batch_idx % 50 == 0:
             self.logger.log_image(images=[x[0],x_hat[0]], key = "img & recon")
         return loss
-
+    
+    def forward(self, x):
+        mean, log_var = self.encoder(x)
+        z = self.reparameterizer(mean, log_var)
+        x_hat = self.decoder(z)
+        return x_hat
+        
     def validation_step(self, batch, batch_idx):
         pass
 

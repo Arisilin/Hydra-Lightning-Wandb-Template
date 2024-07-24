@@ -31,5 +31,3 @@ trainer:
   
 optimizer:
   lr: 0.0001
-
-test: 0.1

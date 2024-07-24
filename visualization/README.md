@@ -1,4 +1,4 @@
-Please Run from upper level folder like:
-```shell
-python visualization/a.py
+RUN with
+```
+python -m visualization.visualization_recon
 ```

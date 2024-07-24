@@ -57,7 +57,7 @@ def train(cfg_dict: DictConfig):
     #Setup Callbacks
     callbacks = []
     ckpt_path = cfg_dict.lightning.multirun_ckpt_save_dir if HydraConfig.get().mode == RunMode.MULTIRUN else cfg_dict.lightning.ckpt_save_dir
-    callbacks.append(ModelCheckpoint(dirpath=ckpt_path,verbose=True,every_n_train_steps=30))
+    callbacks.append(ModelCheckpoint(dirpath=ckpt_path,verbose=True,every_n_epochs=1))
 
     #setup trainer
     trainer = L.Trainer(**cfg_dict.trainer,
