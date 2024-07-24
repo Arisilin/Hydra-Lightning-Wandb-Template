@@ -1,16 +1,18 @@
+
 defaults:
   - model/common@model.encoder: conv
   - model/common@model.decoder: conv
-  - loggers@meta: meta
-  - loggers@hydra: hydra
-  - loggers@lightning: lightning
-  - loggers@wandb: wandb
+  - wandb: tiny-bvae
+
+hydra:
+  job:
+    chdir: False
+
+model:
+  ckpt_path: 
+
 wandb:
   enabled: True
-
-losses:
-  loss_type: [MSELoss,BVAEKLLoss]
-  beta: 0.0001
 
 seed: 42 
 
@@ -24,12 +26,3 @@ dataset:
     - type: Resize
       size: ${model.encoder.img_size}
   mode: [compose]
-
-trainer:
-  limit_train_batches: 10000
-  max_epochs: 50
-  
-optimizer:
-  lr: 0.0001
-
-test: 0.1

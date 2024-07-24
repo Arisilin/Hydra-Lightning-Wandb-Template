@@ -15,6 +15,11 @@ Develop Progress:
 - [x] Add WandbLogger to log loss and result images.
 - [x] Test and fix the bugs in model architecture and losses
 - [ ] TODO: Visualization code use for demonstrate origin vs reconstruction results.
+- [x] Reorganize the logger and lightning checkpointing settings, added multirun support.
+
+# Usage
+
+TODO. 
 
 ## Acknowledgements
 The idea of file organization and some borrowed code originated from:

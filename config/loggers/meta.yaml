@@ -1,0 +1,7 @@
+# the ideal case is that only modify meta.yaml and keep other logger settings the same.
+project: tiny-bvae
+entity: arisilin
+note: simple template
+tags: 
+  - testrun
+  - celebahq

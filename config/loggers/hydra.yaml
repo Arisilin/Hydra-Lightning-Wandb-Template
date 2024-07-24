@@ -1,0 +1,9 @@
+run:
+  dir: output/${meta.project}/${now:%Y-%m-%d_%H-%M-%S}/
+
+sweep:
+  dir: output/${meta.project}/multirun/${now:%Y-%m-%d_%H-%M-%S}/
+  subdir: ${hydra:job.override_dirname}
+
+job:
+  chdir: False

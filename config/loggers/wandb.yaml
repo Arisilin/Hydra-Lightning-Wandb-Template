@@ -1,0 +1,4 @@
+defaults:
+  - meta
+
+dir: output/${meta.project} # since wandb metadata directorys are hardcoded, just set to outputs/wandb.
