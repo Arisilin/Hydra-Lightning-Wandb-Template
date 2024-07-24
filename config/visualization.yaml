@@ -15,7 +15,7 @@ losses:
   beta: 0.0001
 
 model:
-  ckpt_path: test.ckpt/epoch=0-step=150.ckpt
+  ckpt_path: test.ckpt/epoch=0-step=150.ckpt # modify to your own, recommend symlink.
 
 wandb:
   enabled: True
@@ -24,7 +24,7 @@ seed: 42
 
 dataset:
   dataset: celeba_hq
-  root: ./data
+  root: ./data    # recommend symlink
   batch_size: 64
   num_workers: 10
   transform:
@@ -36,7 +36,7 @@ dataset:
 vis:
   visualize_batch: 25
   visualize_nrow: 5
-  save_dir: ./output/vis
+  save_dir: ./output/vis # recommend symlink
 
 trainer:
   limit_train_batches: 10000

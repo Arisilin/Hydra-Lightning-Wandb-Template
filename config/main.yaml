@@ -16,7 +16,7 @@ seed: 42
 
 dataset:
   dataset: celeba_hq
-  root: ./data
+  root: ./data  # recommend symlink
   batch_size: 64
   num_workers: 10
   transform:
