@@ -51,10 +51,14 @@ class VAEConvEncoder(Encoder[VAEConvEncoderCfg]):
             self.fc_mu = nn.Sequential(
                 nn.Linear(self.hidden_dims[-1]*ms*ms, self.latent_dim),
                 nn.ReLU(),
+                nn.Linear(self.latent_dim, self.latent_dim),
+                nn.ReLU(),
                 nn.Linear(self.latent_dim, self.latent_dim)
             )
             self.fc_var = nn.Sequential(
                 nn.Linear(self.hidden_dims[-1]*ms*ms, self.latent_dim),
+                nn.ReLU(),
+                nn.Linear(self.latent_dim, self.latent_dim),
                 nn.ReLU(),
                 nn.Linear(self.latent_dim, self.latent_dim)
             )

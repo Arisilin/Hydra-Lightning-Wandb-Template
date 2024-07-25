@@ -6,14 +6,14 @@ class MSELoss(nn.Module):
         super().__init__()
 
     def forward(self, x:torch.Tensor, x_hat, *args, **kwargs):
-        reconstruction_loss = torch.nn.functional.mse_loss(x_hat, x)
+        reconstruction_loss = torch.nn.functional.mse_loss(x_hat, x,reduction='sum') / x.size(0)
         return reconstruction_loss
 
 class VAEKLLoss(nn.Module):
     def __init__(self,cfg):
         super().__init__()
     
-    def forward(self, mean, log_var, *args,**kwargs):
+    def forward(self, mean:torch.Tensor, log_var, *args,**kwargs):
         kl_loss = -0.5 * torch.sum(1 + log_var - mean.pow(2) - log_var.exp())/mean.size(0)
         return kl_loss
     

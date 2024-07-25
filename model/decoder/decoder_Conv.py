@@ -35,6 +35,8 @@ class VAEConvDecoder(Decoder[VAEConvDecoderCfg]):
 
         self.fc = nn.Sequential(nn.Linear(self.latent_dim,self.latent_dim),
                                 nn.ReLU(),
+                                nn.Linear(self.latent_dim,self.latent_dim),
+                                nn.ReLU(),
                                 nn.Linear(self.latent_dim, self.hidden_dims[-1]*self.map_size*self.map_size),
                                 nn.ReLU())
         self.deConvLayers = nn.ModuleList()
