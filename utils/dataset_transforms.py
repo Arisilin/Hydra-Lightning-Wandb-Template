@@ -15,6 +15,8 @@ def read_transforms(transformCfg):
             transform_list.append(transforms.ToTensor())
         elif param.type == 'Normalize':
             transform_list.append(transforms.Normalize(param.mean, param.std))
+        elif param.type == 'CenterCrop':
+            transform_list.append(transforms.CenterCrop(param.size))
 
     transform = transforms.Compose(transform_list)
     return transform

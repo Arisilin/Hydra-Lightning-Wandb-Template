@@ -3,7 +3,7 @@ name: conv
 img_size: 64
 map_size: null
 in_channel: 3
-latent_dim: 96
+latent_dim: 128
 kernel_sizes: [5,5,5,5]
 strides: [2,2,2,2]
 hidden_dims: [64,128,256,512]

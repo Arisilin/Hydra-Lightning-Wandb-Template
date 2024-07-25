@@ -24,6 +24,7 @@ class DataInterface(L.LightningDataModule):
     def setup(self, stage=None):
         # Assign train/val datasets for use in dataloaders
         if stage == 'fit' or stage is None:
+            # TODO: Current Implementation doesnt break the loading and split into two part, bring the loading part to load_data and just load once.
             self.trainset = self.instancialize(train=True)
             self.valset = self.instancialize(train=False)
 

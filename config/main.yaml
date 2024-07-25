@@ -10,23 +10,25 @@ wandb:
 
 losses:
   loss_type: [MSELoss,BVAEKLLoss]
-  beta: 0.0001
+  beta: 0.0008
 
 seed: 42 
 
 dataset:
-  dataset: celeba_hq
+  dataset: celeba
   root: ./data  # recommend symlink
-  batch_size: 64
-  num_workers: 10
+  batch_size: 72
+  num_workers: 8
   transform:
     - type: ToTensor
+    - type: CenterCrop
+      size: 178
     - type: Resize
       size: ${model.encoder.img_size}
   mode: [compose]
 
 trainer:
-  limit_train_batches: 10000
+  # limit_train_batches: 10000
   max_epochs: 50
   
 optimizer:
