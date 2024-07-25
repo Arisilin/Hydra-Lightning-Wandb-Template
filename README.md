@@ -1,4 +1,4 @@
-# Tiny-bVAE
+# Tiny-bVAE: A Template for Simplified Research Code Development 
 A simple yet well disentangled implementation of VAE/βVAE. Template of using Hydra+wandb+Pytorch Lightning.
 
 ## NOTE
@@ -17,9 +17,21 @@ Develop Progress:
 - [x] Visualization code use for demonstrate origin vs reconstruction results.
 - [x] Reorganize the logger and lightning checkpointing settings, added multirun support.
 
-# Usage
+## Usage
 
-TODO. 
+To run your own training experiment
+```
+conda env create -f conda-env.yaml
+```
+then modify ./config/loggers/meta.yaml to set your wandb settings, and set symlink ./data to your dataset(for now, CelebA(just image file folder) or CelebA-HQ(version with folder organized in val/train and female/male classes) are supported).
+
+Set symlink ./output to your desired output folder.
+
+Then just run
+```
+python main.py
+```
+
 
 ## Acknowledgements
 The idea of file organization and some borrowed code originated from:
