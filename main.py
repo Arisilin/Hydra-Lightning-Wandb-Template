@@ -22,7 +22,7 @@ def train(cfg_dict: DictConfig):
     # and later we resume the experiment for the trainer.
     exp_name = f"exp{HydraConfig.get().job.id}-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}" if HydraConfig.get().mode == RunMode.MULTIRUN else f"exp-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
     id = wandb.util.generate_id()
-    
+    wandb.require("core")
     wandb.init(project=cfg_dict.wandb.project, 
                entity=cfg_dict.wandb.entity, 
                dir=cfg_dict.wandb.dir, 
