@@ -1,5 +1,5 @@
 # Tiny-bVAE: A Template for Simplified Research Code Development 
-A simple yet well disentangled implementation of VAE/βVAE. Template of using Hydra+wandb+Pytorch Lightning.
+A simple yet well decoupled implementation of VAE. Template of using Hydra+wandb+Pytorch Lightning.
 
 ## NOTE
 Still under development, so code might be break from time to time.
