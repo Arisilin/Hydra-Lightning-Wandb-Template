@@ -74,6 +74,14 @@ class ModelInterface(L.LightningModule):
         z = self.reparameterizer(mean, log_var)
         x_hat = self.decoder(z)
         return x_hat
+    
+    def encode(self, x):
+        mean, log_var = self.encoder(x)
+        z = self.reparameterizer(mean, log_var)
+        return z
+
+    def decode(self, z):
+        return self.decoder(z)
         
     def validation_step(self, batch, batch_idx):
         pass

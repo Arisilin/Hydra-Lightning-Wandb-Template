@@ -62,7 +62,7 @@ class DataInterface(L.LightningDataModule):
     
     def train_dataloader(self):
         # print('Data Module len:',len(self.data_module))
-        return DataLoader(self.trainset, batch_size=self.batch_size, num_workers=self.num_workers,pin_memory=True,persistent_workers=True
+        return DataLoader(self.trainset, batch_size=self.batch_size, num_workers=self.num_workers,pin_memory=True,persistent_workers=True, shuffle=True
                           )
     
     def val_dataloader(self):

@@ -5,14 +5,14 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - _libgcc_mutex=0.1=conda_forge
+  - _libgcc_mutex=0.1
   - _openmp_mutex=4.5=2_gnu
   - blas=1.0=mkl
   - brotli-python=1.0.9=py310hd8f1fbe_7
   - bzip2=1.0.8=h5eee18b_6
   - ca-certificates=2024.7.2=h06a4308_0
   - certifi=2024.7.4=py310h06a4308_0
-  - cffi=1.16.0=py310h2fee648_0
+  - cffi=1.16.0
   - charset-normalizer=3.3.2=pyhd8ed1ab_0
   - colorama=0.4.6=pyhd8ed1ab_0
   - cuda-cudart=11.7.99=0
@@ -47,8 +47,8 @@ dependencies:
   - libcusparse=11.7.4.91=0
   - libdeflate=1.17=h5eee18b_1
   - libffi=3.4.4=h6a678d5_1
-  - libgcc-ng=11.2.0=h1234567_1
-  - libgomp=11.2.0=h1234567_1
+  - libgcc-ng
+  - libgomp
   - libidn2=2.3.4=h5eee18b_0
   - libnpp=11.7.4.75=0
   - libnvjpeg=11.8.0.2=0

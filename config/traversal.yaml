@@ -1,3 +1,4 @@
+
 defaults:
   - model/common@model.encoder: conv
   - model/common@model.decoder: conv
@@ -5,31 +6,40 @@ defaults:
   - loggers@hydra: hydra
   - loggers@lightning: lightning
   - loggers@wandb: wandb
-wandb:
-  enabled: True
+hydra:
+  job:
+    chdir: False
 
 losses:
   loss_type: [MSELoss,BVAEKLLoss]
   beta: 10
 
+model:
+  ckpt_path: ./latest.ckpt # modify to your own, recommend symlink.
+
+wandb:
+  enabled: True
+
 seed: 42 
 
 dataset:
   dataset: celeba
-  root: ./data  # recommend symlink
+  root: ./data    # recommend symlink
   batch_size: 72
-  num_workers: 8
+  num_workers: 10
   transform:
     - type: ToTensor
-    - type: CenterCrop
-      size: 178
     - type: Resize
       size: ${model.encoder.img_size}
   mode: [compose]
 
+vis:
+  grid_len: 17
+  save_dir: ./output/vis # recommend symlink
+
 trainer:
-  # limit_train_batches: 10000
-  max_epochs: 100
+  limit_train_batches: 10000
+  max_epochs: 50
   
 optimizer:
-  lr: 0.00004
+  lr: 0.0001
